@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8A00A87D2A840FDC000FC653 /* doryQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A00A87C2A840FDC000FC653 /* doryQuizTests.swift */; };
+		8A602A152A816FA000713970 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A602A142A816FA000713970 /* AppDelegate.swift */; };
+		8A602A172A816FA000713970 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A602A162A816FA000713970 /* SceneDelegate.swift */; };
+		8A602A192A816FA000713970 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A602A182A816FA000713970 /* ViewController.swift */; };
+		8A602A1C2A816FA000713970 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A602A1A2A816FA000713970 /* Main.storyboard */; };
+		8A602A1E2A816FA100713970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A602A1D2A816FA100713970 /* Assets.xcassets */; };
+		8A602A212A816FA100713970 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A602A1F2A816FA100713970 /* LaunchScreen.storyboard */; };
+		8A602A452A81782F00713970 /* QuestaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A602A442A81782F00713970 /* QuestaoViewController.swift */; };
+		8A602A472A818F9A00713970 /* questao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A602A462A818F9A00713970 /* questao.swift */; };
+		8A7737FA2A84179000E47CE0 /* DesempenhoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7737F92A84179000E47CE0 /* DesempenhoViewController.swift */; };
+		8A9D6DF52A856086005CA112 /* QuestaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9D6DF42A856086005CA112 /* QuestaoViewController.swift */; };
+		8AC5886F2A81C603009D4D9E /* DesempenhoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC5886E2A81C603009D4D9E /* DesempenhoViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8A00A87E2A840FDC000FC653 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A602A092A816FA000713970 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A602A102A816FA000713970;
+			remoteInfo = doryQuiz;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8A00A87A2A840FDC000FC653 /* doryQuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = doryQuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A00A87C2A840FDC000FC653 /* doryQuizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doryQuizTests.swift; sourceTree = "<group>"; };
+		8A602A112A816FA000713970 /* doryQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = doryQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A602A142A816FA000713970 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8A602A162A816FA000713970 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8A602A182A816FA000713970 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8A602A1B2A816FA000713970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8A602A1D2A816FA100713970 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8A602A202A816FA100713970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8A602A222A816FA100713970 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A602A442A81782F00713970 /* QuestaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestaoViewController.swift; sourceTree = "<group>"; };
+		8A602A462A818F9A00713970 /* questao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = questao.swift; sourceTree = "<group>"; };
+		8A7737F92A84179000E47CE0 /* DesempenhoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesempenhoViewController.swift; sourceTree = "<group>"; };
+		8A9D6DF42A856086005CA112 /* QuestaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestaoViewController.swift; sourceTree = "<group>"; };
+		8AC5886E2A81C603009D4D9E /* DesempenhoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesempenhoViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8A00A8772A840FDC000FC653 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A602A0E2A816FA000713970 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8A00A87B2A840FDC000FC653 /* doryQuizTests */ = {
+			isa = PBXGroup;
+			children = (
+				8A00A87C2A840FDC000FC653 /* doryQuizTests.swift */,
+				8A7737F92A84179000E47CE0 /* DesempenhoViewController.swift */,
+				8A9D6DF42A856086005CA112 /* QuestaoViewController.swift */,
+			);
+			path = doryQuizTests;
+			sourceTree = "<group>";
+		};
+		8A602A082A816FA000713970 = {
+			isa = PBXGroup;
+			children = (
+				8A602A132A816FA000713970 /* doryQuiz */,
+				8A00A87B2A840FDC000FC653 /* doryQuizTests */,
+				8A602A122A816FA000713970 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8A602A122A816FA000713970 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A602A112A816FA000713970 /* doryQuiz.app */,
+				8A00A87A2A840FDC000FC653 /* doryQuizTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8A602A132A816FA000713970 /* doryQuiz */ = {
+			isa = PBXGroup;
+			children = (
+				8AC588712A828FE2009D4D9E /* Modelo */,
+				8AC588702A828FBB009D4D9E /* ViewController */,
+				8A602A142A816FA000713970 /* AppDelegate.swift */,
+				8A602A162A816FA000713970 /* SceneDelegate.swift */,
+				8A602A1A2A816FA000713970 /* Main.storyboard */,
+				8A602A1D2A816FA100713970 /* Assets.xcassets */,
+				8A602A1F2A816FA100713970 /* LaunchScreen.storyboard */,
+				8A602A222A816FA100713970 /* Info.plist */,
+			);
+			path = doryQuiz;
+			sourceTree = "<group>";
+		};
+		8AC588702A828FBB009D4D9E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8A602A182A816FA000713970 /* ViewController.swift */,
+				8AC5886E2A81C603009D4D9E /* DesempenhoViewController.swift */,
+				8A602A442A81782F00713970 /* QuestaoViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8AC588712A828FE2009D4D9E /* Modelo */ = {
+			isa = PBXGroup;
+			children = (
+				8A602A462A818F9A00713970 /* questao.swift */,
+			);
+			path = Modelo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8A00A8792A840FDC000FC653 /* doryQuizTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A00A8802A840FDC000FC653 /* Build configuration list for PBXNativeTarget "doryQuizTests" */;
+			buildPhases = (
+				8A00A8762A840FDC000FC653 /* Sources */,
+				8A00A8772A840FDC000FC653 /* Frameworks */,
+				8A00A8782A840FDC000FC653 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8A00A87F2A840FDC000FC653 /* PBXTargetDependency */,
+			);
+			name = doryQuizTests;
+			productName = doryQuizTests;
+			productReference = 8A00A87A2A840FDC000FC653 /* doryQuizTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8A602A102A816FA000713970 /* doryQuiz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A602A3B2A816FA100713970 /* Build configuration list for PBXNativeTarget "doryQuiz" */;
+			buildPhases = (
+				8A602A0D2A816FA000713970 /* Sources */,
+				8A602A0E2A816FA000713970 /* Frameworks */,
+				8A602A0F2A816FA000713970 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = doryQuiz;
+			productName = doryQuiz;
+			productReference = 8A602A112A816FA000713970 /* doryQuiz.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8A602A092A816FA000713970 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					8A00A8792A840FDC000FC653 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 8A602A102A816FA000713970;
+					};
+					8A602A102A816FA000713970 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 8A602A0C2A816FA000713970 /* Build configuration list for PBXProject "doryQuiz" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8A602A082A816FA000713970;
+			productRefGroup = 8A602A122A816FA000713970 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8A602A102A816FA000713970 /* doryQuiz */,
+				8A00A8792A840FDC000FC653 /* doryQuizTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8A00A8782A840FDC000FC653 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A602A0F2A816FA000713970 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A602A212A816FA100713970 /* LaunchScreen.storyboard in Resources */,
+				8A602A1E2A816FA100713970 /* Assets.xcassets in Resources */,
+				8A602A1C2A816FA000713970 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8A00A8762A840FDC000FC653 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A7737FA2A84179000E47CE0 /* DesempenhoViewController.swift in Sources */,
+				8A9D6DF52A856086005CA112 /* QuestaoViewController.swift in Sources */,
+				8A00A87D2A840FDC000FC653 /* doryQuizTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A602A0D2A816FA000713970 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A602A472A818F9A00713970 /* questao.swift in Sources */,
+				8A602A192A816FA000713970 /* ViewController.swift in Sources */,
+				8A602A152A816FA000713970 /* AppDelegate.swift in Sources */,
+				8A602A172A816FA000713970 /* SceneDelegate.swift in Sources */,
+				8AC5886F2A81C603009D4D9E /* DesempenhoViewController.swift in Sources */,
+				8A602A452A81782F00713970 /* QuestaoViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8A00A87F2A840FDC000FC653 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8A602A102A816FA000713970 /* doryQuiz */;
+			targetProxy = 8A00A87E2A840FDC000FC653 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8A602A1A2A816FA000713970 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A602A1B2A816FA000713970 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8A602A1F2A816FA100713970 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A602A202A816FA100713970 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8A00A8812A840FDC000FC653 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Lorena-Santos.doryQuizTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/doryQuiz.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/doryQuiz";
+			};
+			name = Debug;
+		};
+		8A00A8822A840FDC000FC653 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Lorena-Santos.doryQuizTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/doryQuiz.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/doryQuiz";
+			};
+			name = Release;
+		};
+		8A602A392A816FA100713970 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8A602A3A2A816FA100713970 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8A602A3C2A816FA100713970 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = doryQuiz/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Lorena-Santos.doryQuiz";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8A602A3D2A816FA100713970 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = doryQuiz/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Lorena-Santos.doryQuiz";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8A00A8802A840FDC000FC653 /* Build configuration list for PBXNativeTarget "doryQuizTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A00A8812A840FDC000FC653 /* Debug */,
+				8A00A8822A840FDC000FC653 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A602A0C2A816FA000713970 /* Build configuration list for PBXProject "doryQuiz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A602A392A816FA100713970 /* Debug */,
+				8A602A3A2A816FA100713970 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A602A3B2A816FA100713970 /* Build configuration list for PBXNativeTarget "doryQuiz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A602A3C2A816FA100713970 /* Debug */,
+				8A602A3D2A816FA100713970 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8A602A092A816FA000713970 /* Project object */;
+}
