@@ -16,7 +16,8 @@ jobs:
       - name: Test
         working-directory: doryQuiz
         run: |
-          xcodebuild clean test -project oryQuiz.xcodeproj -scheme doryQuizs -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild clean test -project doryQuiz.xcodeproj -scheme doryQuizs -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest"
+    - name: Build App
       - name: Build
         working-directory: doryQuiz
         run: |
