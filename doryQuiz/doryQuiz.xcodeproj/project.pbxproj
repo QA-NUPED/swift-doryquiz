@@ -47,6 +47,7 @@
 		8A7737F92A84179000E47CE0 /* DesempenhoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesempenhoViewController.swift; sourceTree = "<group>"; };
 		8A9D6DF42A856086005CA112 /* QuestaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestaoViewController.swift; sourceTree = "<group>"; };
 		8AC5886E2A81C603009D4D9E /* DesempenhoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesempenhoViewController.swift; sourceTree = "<group>"; };
+		C08FAC132A8EC54400365995 /* doryQuiz.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = doryQuiz.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +74,7 @@
 				8A00A87C2A840FDC000FC653 /* doryQuizTests.swift */,
 				8A7737F92A84179000E47CE0 /* DesempenhoViewController.swift */,
 				8A9D6DF42A856086005CA112 /* QuestaoViewController.swift */,
+				C08FAC132A8EC54400365995 /* doryQuiz.xctestplan */,
 			);
 			path = doryQuizTests;
 			sourceTree = "<group>";
