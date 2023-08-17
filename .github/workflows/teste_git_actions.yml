@@ -1,24 +1,5 @@
-# name: Swift
+name: Swift
 
-# on: [push]
-
-# jobs:
-#   build:
-
-#     runs-on: macOS-latest
-
-#     steps:
-#     - uses: actions/checkout@main
-#     - name: Build App
-#       working-directory: doryQuiz
-#       run: xcodebuild -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
-#     - name: Run tests
-#       working-directory: doryQuiz
-#       run: xcodebuild clean test -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest" 
-   
-      
-name: Test and Coverage
-   
 on: [push]
 
 jobs:
@@ -27,7 +8,11 @@ jobs:
     runs-on: macOS-latest
 
     steps:
-      - uses: actions/checkout@main
-      - name: test
-        working-directory: doryQuiz
-        run: xcodebuild clean test -project "doryQuiz.xcodeproj" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest" 
+    - uses: actions/checkout@main
+    - name: Build App
+      working-directory: doryQuiz
+      run: xcodebuild -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
+    - name: Run tests
+      working-directory: doryQuiz
+      run: xcodebuild clean test -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest" 
+  
