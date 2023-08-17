@@ -30,5 +30,4 @@ jobs:
       - uses: actions/checkout@main
       - name: test
         working-directory: doryQuiz
-        run: |
-          test --enable-code-coverage
+        run: xcodebuild clean test -project "doryQuiz.xcodeproj" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest" 
