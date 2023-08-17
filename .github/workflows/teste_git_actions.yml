@@ -29,5 +29,6 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - name: test
+        working-directory: doryQuiz
         run: |
           swift test --enable-code-coverage
