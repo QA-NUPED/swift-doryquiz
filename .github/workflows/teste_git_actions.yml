@@ -31,4 +31,4 @@ jobs:
       - name: test
         working-directory: doryQuiz
         run: |
-          swift test --enable-code-coverage
+          test --enable-code-coverage
