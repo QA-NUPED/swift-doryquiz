@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run tests
       working-directory: doryQuiz
-      run: xcodebuild clean test -project "doryQuiz.xcodeproj" -scheme "doryQuizTests" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest" -list
+      run: xcodebuild clean test -project "doryQuiz.xcodeproj" -scheme "doryQuiz.xcodeproj" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest" 
     - name: Build App
       working-directory: doryQuiz
       run: xcodebuild -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
