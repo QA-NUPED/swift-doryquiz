@@ -11,9 +11,9 @@ if [ -f $RESULT_JSON ]; then
 	rm $RESULT_JSON
 fi
 # Build
-set -o pipefail && env NSUnbufferedIO=YES xcodebuild build-for-testing -scheme "doryQuiz" -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" -enableCodeCoverage YES | xcpretty
+set -o pipefail && env NSUnbufferedIO=YES xcodebuild build-for-testing -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" -enableCodeCoverage YES | xcpretty
 # Test
-set -o pipefail && env NSUnbufferedIO=YES xcodebuild test-without-building -scheme "doryQuiz" -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" -enableCodeCoverage YES -resultBundlePath $RESULT_BUNDLE | xcpretty
+set -o pipefail && env NSUnbufferedIO=YES xcodebuild test-without-building -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" -enableCodeCoverage YES -resultBundlePath $RESULT_BUNDLE | xcpretty
 
 # Extraindo a cobertura da linha e editando para que seja um json file
 set -o pipefail && env NSUnbufferedIO=YES xcrun xccov view --report --json $RESULT_BUNDLE > $RESULT_JSON

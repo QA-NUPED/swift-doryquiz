@@ -16,5 +16,4 @@ jobs:
     #   working-directory: doryQuiz
     #   run: xcodebuild clean test -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest" 
     - name: CodeCover
-      working-directory: doryQuiz
       run: sh ./Scripts/ci-ios-code-coverage.sh
