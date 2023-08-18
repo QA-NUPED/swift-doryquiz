@@ -16,6 +16,6 @@ jobs:
       working-directory: doryQuiz
       run: xcodebuild clean test -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest"
     - name: CodeCover
-      run: rxcodebuild test-without-building -project "doryQuiz/doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" -enableCodeCoverage YES | xcpretty
+      run: xcodebuild test-without-building -project "doryQuiz/doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" -enableCodeCoverage YES | xcpretty
 
 
