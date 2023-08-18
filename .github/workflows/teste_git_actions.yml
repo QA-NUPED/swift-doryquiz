@@ -6,7 +6,7 @@ jobs:
   codecov:
     container:
       image: swift:5.7
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@main
     - name: Build App
