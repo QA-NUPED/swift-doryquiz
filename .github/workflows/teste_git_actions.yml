@@ -1,12 +1,12 @@
-name: Swift
+name: Code Covarege
 
 on: [push]
 
 jobs:
-  build:
-
+  codecov:
+    container:
+      image: swift:5.7
     runs-on: macOS-latest
-
     steps:
     - uses: actions/checkout@main
     - name: Build App
@@ -14,5 +14,8 @@ jobs:
       run: xcodebuild -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
     - name: Run tests
       working-directory: doryQuiz
-      run: xcodebuild clean test -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest" 
-  
+      run: xcodebuild clean test --enable-test-discovery --enable-code-coverage -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest" 
+    - uses: mattpolzin/swift-codecov-action@0.7.5
+      with:
+        MINIMUM_COVERAGE: 98
+        INCLUDE_TESTS: 'true'
