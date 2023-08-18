@@ -1,19 +1,22 @@
-name: CodeCov
+# This workflow will build a Swift project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
 
-on: [push]
+name: Swift
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
 
-    runs-on: macOS-latest
+    runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@main
-    - name: Build App
-      working-directory: doryQuiz
-      run: xcodebuild -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
+    - uses: actions/checkout@v3
+    - name: Build
+      run: swift build -v
     - name: Run tests
-      working-directory: doryQuiz
-      run: xcodebuild clean test -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest" 
-    - name: CodeCover
-      run: sh ./Scripts/ci-ios-code-coverage.sh
+      run: swift test -v
