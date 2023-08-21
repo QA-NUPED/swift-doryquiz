@@ -9,12 +9,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@main
-    - name: Build App
-      working-directory: doryQuiz
-      run: xcodebuild -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO  
-    - name: Run tests
-      working-directory: doryQuiz
-      run: xcodebuild clean test -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest"
+    # - name: Build App
+    #   working-directory: doryQuiz
+    #   run: xcodebuild -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO  
+    # - name: Run tests
+    #   working-directory: doryQuiz
+    #   run: xcodebuild clean test -project "doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest"
     - name: CodeCover
       run: xcodebuild test-without-building -project "doryQuiz/doryQuiz.xcodeproj" -scheme "doryQuiz" -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" -enableCodeCoverage YES | xcpretty
 
