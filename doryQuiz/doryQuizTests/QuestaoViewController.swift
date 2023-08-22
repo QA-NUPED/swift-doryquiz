@@ -15,7 +15,7 @@ final class QuestaoViewControllerTest: XCTestCase {
             let sut = QuestaoViewController()
             let questao = Questao(titulo: "Em frozen, quem foi o primeiro namorado da Ana? ", respostas: ["Sveen","Hans","Kristoff"], respostaCorreta: 1)
             sut.questoes = [questao]
-            sut.numeroQuestao = 0
+            sut.numeroQuestao = 33
             
             // Act
             let resultado = sut.verificarResposta(usuarioResposta: 1)
