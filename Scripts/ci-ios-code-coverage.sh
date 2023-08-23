@@ -1,8 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 SCHEME="IndexedDataStore"
 RESULT_BUNDLE="CodeCoverage.xcresult"
 RESULT_JSON="CodeCoverage.json"
-MIN_CODE_COVERAGE=50.0 # should really be higher =)
+MIN_CODE_COVERAGE=60.0
+CEM=100.0
 
 # Pre-clean
 if [ -d $RESULT_BUNDLE ]; then
@@ -18,5 +19,18 @@ set -o pipefail && env NSUnbufferedIO=YES xcodebuild test-without-building -proj
 
 # Extraindo a cobertura da linha e editando para que seja um json file
 set -o pipefail && env NSUnbufferedIO=YES xcrun xccov view --report --json $RESULT_BUNDLE > $RESULT_JSON
-CODE_COVERAGE=$(cat $RESULT_JSON | jq '.targets[] | select( .name == "IndexedDataStore" and .executableLines > 0 ) | .lineCoverage')
+
+#Filtrando para que a variavel code coverage apenas contenha a cobertura total
+CODE_COVERAGE=$(cat $RESULT_JSON | jq -r '.targets[] | select( .executableLines > 0 ) | .lineCoverage' | sed -n '1p')
+
+# Multiplicando por cem para que o valor seja uma porcentagem
 CODE_COVERAGE=$(echo $CODE_COVERAGE*100.0 | bc)
+
+# Verificando se a porcentagem obtida está de acordo com o esperado
+COVERAGE_PASSES=$(echo "$CODE_COVERAGE > $MIN_CODE_COVERAGE" | bc)
+if [ $COVERAGE_PASSES -ne 1 ]; then
+	printf "\033[0;31mCode coverage %.1f%% is less than required %.1f%%\033[0m\n" $CODE_COVERAGE $MIN_CODE_COVERAGE
+	exit -1
+else
+	printf "\033[0;32mCode coverage is %.1f%%\033[0m\n" $CODE_COVERAGE
+fi
