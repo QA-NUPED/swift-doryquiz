@@ -34,7 +34,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8AAD2DD12A83C1B700C6F63E"
+               BlueprintIdentifier = "8A00A8792A840FDC000FC653"
                BuildableName = "doryQuizTests.xctest"
                BlueprintName = "doryQuizTests"
                ReferencedContainer = "container:doryQuiz.xcodeproj">
