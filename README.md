@@ -27,3 +27,4 @@ Testes Unitários
 5. Ele irá rodar os testes e exibir a mensagem *Tests successfull* 
 
 ![image](https://github.com/QA-NUPED/swift-doryquiz/assets/108770094/ae74e804-42d5-4873-8111-9e061956ca02)
+
