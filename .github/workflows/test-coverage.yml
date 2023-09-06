@@ -6,20 +6,19 @@ on:
 
 jobs:
   code-coverage-report:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
-      - name: Test
-        uses: actions/checkout@v1
-      - run: swift test --enable-code-coverage
+      - uses: actions/checkout@v1
+      - run: xcodebuild test -project App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=13.0' -enableCodeCoverage YES -derivedDataPath DerivedData
       - uses: michaelhenry/swifty-code-coverage@v1.0.0
         with:
-          build-path: .build
-          target: GithubChecksPackageTests.xctest
-          is-spm: true
-      - name: Upload to Codecov
-        run: |
-          bash <(curl https://codecov.io/bash) -f "coverage/*.info"
-        shell: bash
+          build-path: DerivedData
+          target: App.app
+          is-spm: false
+      - name: Publish to code climate
+        uses: paambaati/codeclimate-action@v3.0.0
         env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-          
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageLocations: |
+            coverage/lcov.info:lcov
