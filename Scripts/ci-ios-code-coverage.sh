@@ -15,7 +15,9 @@ fi
 set -o pipefail && env NSUnbufferedIO=YES xcodebuild build-for-testing -project "doryQuiz/doryQuiz.xcodeproj" -scheme "doryQuizTests" -destination "platform=iOS Simulator,OS=latest,name=iPhone 14" -enableCodeCoverage YES | xcpretty
 # Test
 set -o pipefail && env NSUnbufferedIO=YES xcodebuild test-without-building -project "doryQuiz/doryQuiz.xcodeproj" -scheme "doryQuizTests" -destination "platform=iOS Simulator,OS=latest,name=iPhone 14" -enableCodeCoverage YES -resultBundlePath $RESULT_BUNDLE | xcpretty
-$ set -o pipefail && env "NSUnbufferedIO=YES" xcodebuild -project "doryQuiz/doryQuiz.xcodeproj" -scheme "doryQuizTests" "build" "COMPILER_INDEX_STORE_ENABLE=NO" "test" -destination "id=192655B2-4F13-4E3D-8B9F-F1B94548CE05" -resultBundlePath "/var/folders/6q/wgy6jtp12w5gzgm9lzcglpqw0000gn/T/XCUITestOutput001844682/Test.xcresult" "GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES" "GCC_GENERATE_TEST_COVERAGE_FILES=YES" | xcpretty "--color" "--report" "html" "--output" "swift-doryquiz/CodeCoverage.xcresult/Info.plist"
+#Report
+set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "doryQuiz/doryQuiz.xcodeproj" -scheme "doryQuizTests" build "COMPILER_INDEX_STORE_ENABLE=NO" test -destination "id=192655B2-4F13-4E3D-8B9F-F1B94548CE05" -resultBundlePath "/var/folders/6q/wgy6jtp12w5gzgm9lzcglpqw0000gn/T/XCUITestOutput001844682/Test.xcresult" "GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES" "GCC_GENERATE_TEST_COVERAGE_FILES=YES" | xcpretty "--color" "--report" "html" "--output" "swift-doryquiz/CodeCoverage.xcresult/Info.plist"
+
 set -o pipefail && env NSUnbufferedIO=YES xcrun xccov view --report --json $RESULT_BUNDLE > $RESULT_JSON
 
 #Filtrando para que a variavel code coverage apenas contenha a cobertura total
