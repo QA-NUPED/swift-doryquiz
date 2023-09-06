@@ -1,4 +1,4 @@
-name: Coverage
+name: coverage
 
 on:
   pull_request:
@@ -8,17 +8,17 @@ jobs:
   code-coverage-report:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v1
-      - run: sh ./Scripts/ci-ios-code-coverage.sh
+      - name: Test
+        uses: actions/checkout@v1
+      - run: xcodbuild test --enable-code-coverage
       - uses: michaelhenry/swifty-code-coverage@v1.0.0
         with:
-          build-path: DerivedData
-          target: App.app
-          is-spm: false
-      - name: Publish to code climate
-        uses: paambaati/codeclimate-action@v3.0.0
+          build-path: .build
+          target: GithubChecksPackageTests.xctest
+          is-spm: true
+      - name: Upload to Codecov
+        run: |
+          bash <(curl https://codecov.io/bash) -f "coverage/*.info"
+        shell: bash
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          coverageLocations: |
-            coverage/lcov.info:lcov
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
