@@ -18,8 +18,6 @@ set -o pipefail && env NSUnbufferedIO=YES xcodebuild build-for-testing -project 
 # Test
 set -o pipefail && env NSUnbufferedIO=YES xcodebuild test-without-building -project "doryQuiz/doryQuiz.xcodeproj" -scheme "doryQuizTests" -destination "platform=iOS Simulator,OS=latest,name=iPhone 14" -enableCodeCoverage YES -resultBundlePath $RESULT_BUNDLE | xcpretty
 # #Report
-# llvm-cov export -instr-profile $RESULT_BUNDLE -format lcov > $RESULT_JSON
-
 set -o pipefail && env NSUnbufferedIO=YES xcrun xccov view --report --json $RESULT_BUNDLE > $RESULT_JSON
 
 #Filtrando para que a variavel code coverage apenas contenha a cobertura total
@@ -35,52 +33,6 @@ if [ $COVERAGE_PASSES -ne 1 ]; then
 else
 	printf "\033[0;32mCode coverage is %.1f%%\033[0m\n" $CODE_COVERAGE
 fi
-
-
-# getEmoticon() {
-#     local percent="$1"
-
-#     if (( percent >= 0 && percent <= 20 )); then
-#         echo "🔴"
-#     elif (( percent > 20 && percent <= 40 )); then
-#         echo "🟡"
-#     elif (( percent > 40 && percent <= 60 )); then
-#         echo "🟢"
-#     elif (( percent > 60 && percent <= 80 )); then
-#         echo "🎖"
-#     elif (( percent > 80 && percent < 90 )); then
-#         echo "🏆"
-#     elif (( percent >= 90 && percent <= 100 )); then
-#         echo "💎"
-#     else
-#         echo ""
-#     fi
-# }
-
-# # Exemplo de uso:
-# percent_value="60"
-# emoticon=$(getEmoticon "$percent_value")
-# echo "Emoticon: $emoticon"
-
-# formatField() {
-#     local percent="$1"
-#     local count="$2"
-#     local total="$3"
-#     local emoticon
-
-#     emoticon=$(getEmoticon "$percent")
-#     echo "$emoticon $percent% ($count/$total)"
-# }
-
-# # Exemplo de uso:
-# percent_value="50"
-# count_value="100"
-# total_value="200"
-# formatted_result=$(formatField "$percent_value" "$count_value" "$total_value")
-# echo "$formatted_result"
-
-
-    
         
 	 md="| Feature Name | Line Coverage | Branch Coverage |\n|---|---|---|\n"
         
@@ -103,8 +55,9 @@ fi
             fi
             
             md+="| $scheme | $line_coverage | $branch_coverage |\n"
-			echo -e "$md"
+			
         done
+		echo -e "$md"
         
 	# Comentário no PR
 		comment_url="https://api.github.com/QA-NUPED/swift-doryquiz/$pr_number/comments"
