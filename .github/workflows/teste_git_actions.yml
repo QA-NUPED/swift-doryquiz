@@ -11,8 +11,8 @@ jobs:
     - name: Run tests
       uses: sersoft-gmbh/xcodebuild-action@v1
       with:
-        project: MyApp.xcodeproj
-        scheme: MyApp
+        project: doryQuiz.xcodeproj
+        scheme: doryQuizTests
         derived-data-path: ./output
         destination: "OS=14.4,name=iPhone 12 Pro"
         action: test
@@ -22,5 +22,5 @@ jobs:
       uses: maxep/xcodebuild-lcov-action@0.1.0
       with:
         derived-data-path: ./output
-        target: MyApp.app
+        target: doryQuiz.app
         output-file: ./output/lcov.info
