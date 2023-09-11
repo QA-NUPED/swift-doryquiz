@@ -37,47 +37,47 @@ else
 fi
 
 
-getEmoticon() {
-    local percent="$1"
+# getEmoticon() {
+#     local percent="$1"
 
-    if (( percent >= 0 && percent <= 20 )); then
-        echo "🔴"
-    elif (( percent > 20 && percent <= 40 )); then
-        echo "🟡"
-    elif (( percent > 40 && percent <= 60 )); then
-        echo "🟢"
-    elif (( percent > 60 && percent <= 80 )); then
-        echo "🎖"
-    elif (( percent > 80 && percent < 90 )); then
-        echo "🏆"
-    elif (( percent >= 90 && percent <= 100 )); then
-        echo "💎"
-    else
-        echo ""
-    fi
-}
+#     if (( percent >= 0 && percent <= 20 )); then
+#         echo "🔴"
+#     elif (( percent > 20 && percent <= 40 )); then
+#         echo "🟡"
+#     elif (( percent > 40 && percent <= 60 )); then
+#         echo "🟢"
+#     elif (( percent > 60 && percent <= 80 )); then
+#         echo "🎖"
+#     elif (( percent > 80 && percent < 90 )); then
+#         echo "🏆"
+#     elif (( percent >= 90 && percent <= 100 )); then
+#         echo "💎"
+#     else
+#         echo ""
+#     fi
+# }
 
-# Exemplo de uso:
-percent_value="75"
-emoticon=$(getEmoticon "$percent_value")
-echo "Emoticon: $emoticon"
+# # Exemplo de uso:
+# percent_value="60"
+# emoticon=$(getEmoticon "$percent_value")
+# echo "Emoticon: $emoticon"
 
-formatField() {
-    local percent="$1"
-    local count="$2"
-    local total="$3"
-    local emoticon
+# formatField() {
+#     local percent="$1"
+#     local count="$2"
+#     local total="$3"
+#     local emoticon
 
-    emoticon=$(getEmoticon "$percent")
-    echo "$emoticon $percent% ($count/$total)"
-}
+#     emoticon=$(getEmoticon "$percent")
+#     echo "$emoticon $percent% ($count/$total)"
+# }
 
-# Exemplo de uso:
-percent_value="50.5"
-count_value="100"
-total_value="200"
-formatted_result=$(formatField "$percent_value" "$count_value" "$total_value")
-echo "$formatted_result"
+# # Exemplo de uso:
+# percent_value="50"
+# count_value="100"
+# total_value="200"
+# formatted_result=$(formatField "$percent_value" "$count_value" "$total_value")
+# echo "$formatted_result"
 
 
     
@@ -98,8 +98,8 @@ echo "$formatted_result"
             else
                 lines=$(echo "$RESULT_JSON" | jq -r ".\"$scheme\".lines")
                 branches=$(echo "$RESULT_JSON" | jq -r ".\"$scheme\".branches")
-                line_coverage=$(formatField "$lines")
-                branch_coverage=$(formatField "$branches")
+                line_coverage=$(CODE_COVERAGE "$lines")
+                branch_coverage=$(CODE_COVERAGE "$branches")
             fi
             
             md+="| $scheme | $line_coverage | $branch_coverage |\n"
