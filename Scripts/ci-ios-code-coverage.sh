@@ -103,9 +103,9 @@ fi
             fi
             
             md+="| $scheme | $line_coverage | $branch_coverage |\n"
+			echo -e "$md"
         done
         
-        echo -e "$md"
 	# Comentário no PR
 		comment_url="https://api.github.com/QA-NUPED/swift-doryquiz/$pr_number/comments"
 		comment_text="**Relatório de Cobertura:**\n\n$md"
