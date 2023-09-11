@@ -1,4 +1,6 @@
 #!/bin/bash
+pr_number="1"
+github_token="teste1234"
 SCHEME="IndexedDataStore"
 RESULT_BUNDLE="CodeCoverage.xcresult"
 RESULT_JSON="CodeCoverage.json"
@@ -34,6 +36,32 @@ else
 	printf "\033[0;32mCode coverage is %.1f%%\033[0m\n" $CODE_COVERAGE
 fi
 
+
+getEmoticon() {
+    local percent="$1"
+
+    if (( percent >= 0 && percent <= 20 )); then
+        echo "🔴"
+    elif (( percent > 20 && percent <= 40 )); then
+        echo "🟡"
+    elif (( percent > 40 && percent <= 60 )); then
+        echo "🟢"
+    elif (( percent > 60 && percent <= 80 )); then
+        echo "🎖"
+    elif (( percent > 80 && percent < 90 )); then
+        echo "🏆"
+    elif (( percent >= 90 && percent <= 100 )); then
+        echo "💎"
+    else
+        echo ""
+    fi
+}
+
+# Exemplo de uso:
+percent_value="75"
+emoticon=$(getEmoticon "$percent_value")
+echo "Emoticon: $emoticon"
+
 formatField() {
     local percent="$1"
     local count="$2"
@@ -45,11 +73,11 @@ formatField() {
 }
 
 # Exemplo de uso:
-# percent_value="50.5"
-# count_value="100"
-# total_value="200"
-# formatted_result=$(formatField "$percent_value" "$count_value" "$total_value")
-# echo "$formatted_result"
+percent_value="50.5"
+count_value="100"
+total_value="200"
+formatted_result=$(formatField "$percent_value" "$count_value" "$total_value")
+echo "$formatted_result"
 
 
     
@@ -78,3 +106,11 @@ formatField() {
         done
         
         echo -e "$md"
+	# Comentário no PR
+		comment_url="https://api.github.com/QA-NUPED/swift-doryquiz/$pr_number/comments"
+		comment_text="**Relatório de Cobertura:**\n\n$md"
+
+		curl -s -H "Authorization: token $github_token" \
+			-H "Content-Type: application/json" \
+			-X POST -d "{\"body\":\"$comment_text\"}" \
+			"$comment_url"
