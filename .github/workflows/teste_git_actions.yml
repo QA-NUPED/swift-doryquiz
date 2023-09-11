@@ -18,9 +18,9 @@ jobs:
         action: test
         enable-code-coverage: true
 
-  - name: Test Coverage
-    uses: maxep/xcodebuild-lcov-action@0.1.0
-    with:
-      derived-data-path: ./output
-      target: MyApp.app
-      output-file: ./output/lcov.info
+    - name: Test Coverage
+      uses: maxep/xcodebuild-lcov-action@0.1.0
+      with:
+        derived-data-path: ./output
+        target: MyApp.app
+        output-file: ./output/lcov.info
