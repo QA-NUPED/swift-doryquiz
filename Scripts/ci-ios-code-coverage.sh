@@ -1,7 +1,7 @@
 #!/bin/bash
 SCHEME="IndexedDataStore"
 RESULT_BUNDLE="CodeCoverage.xcresult"
-RESULT_JSON="CodeCoverage.lcov"
+RESULT_JSON="CodeCoverage.json"
 MIN_CODE_COVERAGE=60.0
 
 # Pre-clean
@@ -34,3 +34,48 @@ if [ $COVERAGE_PASSES -ne 1 ]; then
 else
 	printf "\033[0;32mCode coverage is %.1f%%\033[0m\n" $CODE_COVERAGE
 fi
+
+formatField() {
+    local percent="$1"
+    local count="$2"
+    local total="$3"
+    local emoticon
+
+    emoticon=$(getEmoticon "$percent")
+    echo "$emoticon $percent% ($count/$total)"
+}
+
+# Exemplo de uso:
+# percent_value="50.5"
+# count_value="100"
+# total_value="200"
+# formatted_result=$(formatField "$percent_value" "$count_value" "$total_value")
+# echo "$formatted_result"
+
+
+    
+        
+	 md="| Feature Name | Line Coverage | Branch Coverage |\n|---|---|---|\n"
+        
+        schemes=$(echo "$RESULT_JSON" | jq -r 'keys[]' | sort)
+        
+        for scheme in $schemes; do
+            error=$(echo "$RESULT_JSON" | jq -r ".\"$scheme\".error")
+            
+            if [ "$error" == "No coverage data found" ]; then
+                line_coverage="0.0% (0/0)"
+                branch_coverage="0.0% (0/0)"
+            elif [ -n "$error" ]; then
+                line_coverage="Error"
+                branch_coverage="$error"
+            else
+                lines=$(echo "$RESULT_JSON" | jq -r ".\"$scheme\".lines")
+                branches=$(echo "$RESULT_JSON" | jq -r ".\"$scheme\".branches")
+                line_coverage=$(formatField "$lines")
+                branch_coverage=$(formatField "$branches")
+            fi
+            
+            md+="| $scheme | $line_coverage | $branch_coverage |\n"
+        done
+        
+        echo -e "$md"
