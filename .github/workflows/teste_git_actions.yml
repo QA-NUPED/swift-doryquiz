@@ -33,7 +33,7 @@ jobs:
     - name: Run tests
       uses: sersoft-gmbh/xcodebuild-action@v1
       with:
-        project: doryQuiz/doryQuiz.xcodeproj
+        project: DerivedData/doryQuiz-edocehqkdfpyosalmqwahiqdwpii
         scheme: IndexedDataStore
         derived-data-path: DerivedData/doryQuiz-edocehqkdfpyosalmqwahiqdwpii/Build/ProfileData/192655B2-4F13-4E3D-8B9F-F1B94548CE05/Coverage.profdata
         destination: "platform=iOS Simulator,OS=latest,name=iPhone 14"
