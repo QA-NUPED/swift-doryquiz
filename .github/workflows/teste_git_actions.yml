@@ -8,15 +8,19 @@ jobs:
     runs-on: macOS-latest
 
     steps:
-    - name: Run tests
-      uses: sersoft-gmbh/xcodebuild-action@v1
-      with:
-        project: swift-doryquiz/doryQuiz/doryQuiz.xcodeproj
-        scheme: doryQuizTests
-        derived-data-path: ./output
-        destination: "OS=14.4,name=iPhone 12 Pro"
-        action: test
-        enable-code-coverage: true
+    - uses: actions/checkout@main
+    - name: CodeCover
+      run: sh ./Scripts/ci-ios-code-coverage.sh
+
+    # - name: Run tests
+    #   uses: sersoft-gmbh/xcodebuild-action@v1
+    #   with:
+    #     project: doryQuiz/doryQuiz.xcodeproj
+    #     scheme: doryQuizTests
+    #     derived-data-path: ./output
+    #     destination: "OS=14.4,name=iPhone 12 Pro"
+    #     action: test
+    #     enable-code-coverage: true
 
     - name: Test Coverage
       uses: maxep/xcodebuild-lcov-action@0.1.0
