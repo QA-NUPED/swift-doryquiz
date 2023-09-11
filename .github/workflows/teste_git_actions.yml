@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
 
     steps:
     - uses: actions/checkout@main
@@ -25,6 +25,7 @@ jobs:
     - name: Test Coverage
       uses: maxep/xcodebuild-lcov-action@0.1.0
       with:
+        run: brew install llvm
         derived-data-path: ./CodeCoverage.xcresult/Info.plist
         target: doryQuiz.app
         output-file: ./coverage/lcov.info
