@@ -11,7 +11,7 @@ jobs:
     - name: Run tests
       uses: sersoft-gmbh/xcodebuild-action@v1
       with:
-        project: doryQuiz/doryQuiz.xcodeproj
+        project: swift-doryquiz/doryQuiz/doryQuiz.xcodeproj
         scheme: doryQuizTests
         derived-data-path: ./output
         destination: "OS=14.4,name=iPhone 12 Pro"
