@@ -21,11 +21,12 @@ jobs:
     #     destination: "OS=14.4,name=iPhone 12 Pro"
     #     action: test
     #     enable-code-coverage: true
-
+    - name: install llvm
+      run: brew install llvm
+      
     - name: Test Coverage
       uses: maxep/xcodebuild-lcov-action@0.1.0
       with:
-        run: brew install llvm
         derived-data-path: ./CodeCoverage.xcresult/Info.plist
         target: doryQuiz.app
         output-file: ./coverage/lcov.info
