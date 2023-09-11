@@ -8,11 +8,19 @@ jobs:
     runs-on: macOS-latest
 
     steps:
-    - uses: actions/checkout@main
-    - name: CodeCover
-      run: sh ./Scripts/ci-ios-code-coverage.sh
-
-    - name: Test coverage
-      uses: maxep/spm-lcov-action@0.3.0
+    - name: Run tests
+      uses: sersoft-gmbh/xcodebuild-action@v1
       with:
-        output-file: ./coverage/lcov.info
+        project: MyApp.xcodeproj
+        scheme: MyApp
+        derived-data-path: ./output
+        destination: "OS=14.4,name=iPhone 12 Pro"
+        action: test
+        enable-code-coverage: true
+
+  - name: Test Coverage
+    uses: maxep/xcodebuild-lcov-action@0.1.0
+    with:
+      derived-data-path: ./output
+      target: MyApp.app
+      output-file: ./output/lcov.info
