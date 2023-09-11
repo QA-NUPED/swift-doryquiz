@@ -1,5 +1,5 @@
 #!/bin/bash
-pr_number="1"
+pr_number=1
 github_token="teste1234"
 SCHEME="IndexedDataStore"
 RESULT_BUNDLE="CodeCoverage.xcresult"
