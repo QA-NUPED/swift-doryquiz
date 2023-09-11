@@ -27,4 +27,4 @@ jobs:
       with:
         derived-data-path: ./CodeCoverage.xcresult/Info.plist
         target: doryQuiz.app
-        output-file: ./output/lcov.info
+        output-file: ./coverage/lcov.info
