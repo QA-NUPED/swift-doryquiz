@@ -12,7 +12,7 @@ jobs:
     - name: CodeCover
       run: sh ./Scripts/ci-ios-code-coverage.sh
 
-    - name: Report coverage
-      uses: romeovs/lcov-reporter-action@v0.2.16
+    - name: Test coverage
+      uses: maxep/spm-lcov-action@0.3.0
       with:
-        lcov-file: ./coverage/lcov.info
+        output-file: ./coverage/lcov.info
