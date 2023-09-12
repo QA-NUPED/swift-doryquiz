@@ -16,33 +16,25 @@ jobs:
     runs-on: macOS-latest
 
     steps:
-    # - uses: actions/checkout@main
-    # - name: CodeCover
-    #   run: sh ./Scripts/ci-ios-code-coverage.sh
-    # - name: Create issue
-    #   run: |
-    #     curl --request POST \
-    #     --url https://api.github.com/QA-NUPED/swift-doryquiz/issues \
-    #     --header 'authorization: Bearer ${{ secrets.github_token }}' \
-    #     --header 'content-type: application/json' \
-    #     --data '{
-    #       "title": "Automated issue for commit: ${{ github.sha }}",
-    #       "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
-    #       }' \
-    #     --fail
-    - name: Run tests
-      uses: sersoft-gmbh/xcodebuild-action@v1
-      with:
-        project: DerivedData/doryQuiz-edocehqkdfpyosalmqwahiqdwpii
-        scheme: IndexedDataStore
-        derived-data-path: DerivedData/doryQuiz-edocehqkdfpyosalmqwahiqdwpii/Build/ProfileData/192655B2-4F13-4E3D-8B9F-F1B94548CE05/Coverage.profdata
-        destination: "platform=iOS Simulator,OS=latest,name=iPhone 14"
-        action: test
-        enable-code-coverage: true
+    - uses: actions/checkout@main
+    - name: CodeCover
+      run: sh ./Scripts/ci-ios-code-coverage.sh
 
-    - name: Test Coverage
-      uses: maxep/xcodebuild-lcov-action@0.1.0
-      with:
-        derived-data-path: DerivedData/doryQuiz-edocehqkdfpyosalmqwahiqdwpii/Build/ProfileData/192655B2-4F13-4E3D-8B9F-F1B94548CE05/Coverage.profdata
-        target: CodeCoverage.xcresult
-        output-file: ./coverage/lcov.info
+    # - name: Run tests
+    #   uses: sersoft-gmbh/xcodebuild-action@v1
+    #   with:
+    #     project: doryQuiz/doryQuiz.xcodeproj
+    #     scheme: doryQuizTests
+    #     derived-data-path: ./output
+    #     destination: "OS=14.4,name=iPhone 12 Pro"
+    #     action: test
+    #     enable-code-coverage: true
+    # - name: install llvm
+    #   run: brew install llvm
+
+    # - name: Test Coverage
+    #   uses: maxep/xcodebuild-lcov-action@0.1.0
+    #   with:
+    #     derived-data-path: ./CodeCoverage.xcresult
+    #     target: doryQuiz.app
+    #     output-file: ./coverage/lcov.info
