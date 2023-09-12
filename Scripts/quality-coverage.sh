@@ -26,8 +26,11 @@ COVERAGE_SUMMARY=$(cat $RESULT_JSON | jq -r '
 	.targets[] | 
     select(.executableLines > 0) | 
     {
-		folder: .name,
-    	lineCoverage: .lineCoverage
+		while IFS= read -r line; do
+    		folder=$(echo "$line" | jq -r '.folder')
+    		lineCoverage=$(echo "$line" | jq -r '.lineCoverage')
+    		printf "%-30s %-15.2f%%\n" "$folder" "$lineCoverage"
+		done <<< "$COVERAGE_SUMMARY"
     }
 ')
 
