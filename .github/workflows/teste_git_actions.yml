@@ -1,6 +1,14 @@
 name: Code Coverage
 
-on: [push]
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  id-token: write
+  contents: read
+  issues: write
+  pull-requests: write
 
 jobs:
   build:
@@ -11,3 +19,22 @@ jobs:
     - uses: actions/checkout@main
     - name: CodeCover
       run: sh ./Scripts/ci-ios-code-coverage.sh
+
+    # - name: Run tests
+    #   uses: sersoft-gmbh/xcodebuild-action@v1
+    #   with:
+    #     project: doryQuiz/doryQuiz.xcodeproj
+    #     scheme: doryQuizTests
+    #     derived-data-path: ./output
+    #     destination: "OS=14.4,name=iPhone 12 Pro"
+    #     action: test
+    #     enable-code-coverage: true
+    # - name: install llvm
+    #   run: brew install llvm
+
+    # - name: Test Coverage
+    #   uses: maxep/xcodebuild-lcov-action@0.1.0
+    #   with:
+    #     derived-data-path: ./CodeCoverage.xcresult
+    #     target: doryQuiz.app
+    #     output-file: ./coverage/lcov.info
