@@ -23,14 +23,24 @@ set -o pipefail && env NSUnbufferedIO=YES xcrun xccov view --report --json $RESU
 
 # Parse JSON report and create coverage summary
 COVERAGE_SUMMARY=$(cat $RESULT_JSON | jq -r '
-    printf "%-15s %-15s %-15s\n" "Files" "Func" "Line"
-	echo "-------------------------------------------" 
 	.targets[] | 
     select(.executableLines > 0) | 
     {
-        
+		folder: .name,
+    	lineCoverage: .lineCoverage
     }
 ')
+
+# Print a table header
+printf "%-30s %-15s\n" "Folder" "Line Coverage"
+printf "--------------------------------- ----------------\n"
+
+# Iterate through COVERAGE_SUMMARY and print the table rows
+while IFS= read -r line; do
+    folder=$(echo "$line" | jq -r '.folder')
+    lineCoverage=$(echo "$line" | jq -r '.lineCoverage')
+    printf "%-30s %-15.2f%%\n" "$folder" "$lineCoverage"
+done <<< "$COVERAGE_SUMMARY"
 
 # Comment on a random pull request
 PR_NUMBER=$(gh pr list | awk '{print $1}' | sort -R | head -n 1)
