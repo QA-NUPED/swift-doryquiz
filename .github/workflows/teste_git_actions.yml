@@ -28,7 +28,7 @@ jobs:
     - uses: kishikawakatsumi/xcresulttool@v1
       with:
         path: CodeCoverage.xcresult
-        token: ${{ PASSWOR_TOKEN }}
+        token: ${{ secrets.PASSWOR_TOKEN }}
         if: success() || failure()
         # ^ This is important because the action will be run
         # even if the test fails in the previous step.
