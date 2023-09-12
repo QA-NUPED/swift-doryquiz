@@ -28,7 +28,7 @@ jobs:
     - uses: kishikawakatsumi/xcresulttool@v1
       with:
         path: CodeCoverage.xcresult
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.PASSWOR_TOKEN }}
         title: Xcode test results
         show-passed-tests: true
         show-code-coverage: true
