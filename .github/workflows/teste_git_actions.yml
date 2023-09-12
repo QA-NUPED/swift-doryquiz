@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@main
     - name: CodeCover
-      run: sh ./Scripts/code-coverage.sh
+      run: sh ./Scripts/quality-coverage.sh
 
     # - uses: kishikawakatsumi/xcresulttool@v1
     #   with:
