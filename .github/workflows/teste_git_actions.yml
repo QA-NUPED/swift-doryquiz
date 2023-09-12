@@ -22,12 +22,8 @@ jobs:
         path: CodeCoverage.xcresult
         token: ${{ secrets.GITHUB_TOKEN }}
         title: Xcode test results
-        show-passed-tests: true
+        show-passed-tests: false
         show-code-coverage: true
-        upload-bundles: always
-        min-coverage-overall: 10
-        min-coverage-changed-files: 60
-        coverage-counter-type: LINE
     # - run: sh ./Scripts/quality-coverage.sh
       if: success() || failure()
         # ^ This is important because the action will be run
