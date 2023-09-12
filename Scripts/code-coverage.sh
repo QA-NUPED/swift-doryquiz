@@ -36,20 +36,3 @@ else
     REPORT=$(cat $RESULT_JSON | jq -r '.targets[] | select( .executableLines > 0 ) | "\(.name): \(.lineCoverage * 100)%"' | sort)
     echo -e "Folders Tested and Coverage Percentage:\n$REPORT"
 fi
-# # Criar um relatório Markdown
-# MARKDOWN_REPORT="Relatório de Cobertura de Testes
-# ======================================
-# - Projeto: doryQuiz
-# - Esquema: $SCHEME
-# - Porcentagem Mínima de Cobertura: $MIN_CODE_COVERAGE%
-
-# Detalhes da Cobertura de Testes
-# ------------------------------
-# - Cobertura Total: $CODE_COVERAGE%
-
-# Mais detalhes sobre a cobertura de testes podem ser encontrados no arquivo .xcresult.
-
-# "
-
-# # Imprimir o relatório no terminal
-echo -e "$REPORT"

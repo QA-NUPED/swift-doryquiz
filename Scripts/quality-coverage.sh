@@ -32,7 +32,7 @@ COVERAGE_SUMMARY=$(cat $RESULT_JSON | jq -r '
 ')
 
 # Comment on a random pull request
-PR_NUMBER=$(gh pr list | awk '{print $1}' | shuf -n 1)
+PR_NUMBER=$(gh pr list | awk '{print $1}' | sort -R | head -n 1)
 PR_COMMENT="Code Coverage Summary:\n$COVERAGE_SUMMARY"
 
 gh pr comment $PR_NUMBER --body "$PR_COMMENT"
