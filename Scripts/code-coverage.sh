@@ -1,18 +1,14 @@
 #!/bin/bash
-pr_number=1
-github_token="teste1234"
 SCHEME="IndexedDataStore"
 RESULT_BUNDLE="CodeCoverage.xcresult"
 RESULT_JSON="CodeCoverage.json"
-MIN_CODE_COVERAGE=60.0
+
 
 # Pre-clean
 if [ -d $RESULT_BUNDLE ]; then
 	rm -rf $RESULT_BUNDLE
 fi
-if [ -f $RESULT_JSON ]; then
-	rm $RESULT_JSON
-fi
+
 # Build
 set -o pipefail && env NSUnbufferedIO=YES xcodebuild build-for-testing -project "doryQuiz/doryQuiz.xcodeproj" -scheme "doryQuizTests" -destination "platform=iOS Simulator,OS=latest,name=iPhone 14" -enableCodeCoverage YES | xcpretty
 # Test
