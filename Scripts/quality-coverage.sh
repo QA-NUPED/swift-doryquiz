@@ -36,10 +36,8 @@ printf "%-30s %-15s\n" "Folder" "Line Coverage"
 printf "--------------------------------- ----------------\n"
 
 # Iterate through COVERAGE_SUMMARY and print the table rows
-while IFS= read -r line; do
-    folder=$(echo "$line" | jq -r '.folder')
-    lineCoverage=$(echo "$line" | jq -r '.lineCoverage')
-    printf "%-30s %-15.2f%%\n" "$folder" "$lineCoverage"
+while read -r folder lineCoverage; do
+    printf "%-30s %-15s\n" "$folder" "$lineCoverage"
 done <<< "$COVERAGE_SUMMARY"
 
 # Comment on a random pull request
