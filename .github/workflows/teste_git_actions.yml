@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macOS-latest
     permissions:
       checks: write
       contents: read
