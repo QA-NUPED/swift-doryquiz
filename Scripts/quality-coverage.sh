@@ -22,7 +22,7 @@ set -o pipefail && env NSUnbufferedIO=YES xcodebuild test-without-building -proj
 set -o pipefail && env NSUnbufferedIO=YES xcrun xccov view --report --json $RESULT_BUNDLE > $RESULT_JSON
 
 # Parse JSON report and create coverage summary
-COVERAGE_SUMMARY=$(echo $RESULT_JSON | jq -r '
+COVERAGE_SUMMARY=$(cat $RESULT_JSON | jq -r '
 	.targets[] | 
     select(.executableLines > 0) | 
     {
