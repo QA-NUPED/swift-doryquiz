@@ -31,9 +31,19 @@ COVERAGE_SUMMARY=$(cat $RESULT_JSON | jq -r '
     }
 ')
 
+COVERAGE_TABLE=$(echo "Folder|Line Coverage"
+echo "------|-------------"
+
+# Loop para formatar os dados em uma tabela
+echo "$COVERAGE_SUMMARY" | while read -r line; do
+    folder=$(echo "$line" | jq -r '.folder')
+    lineCoverage=$(echo "$line" | jq -r '.lineCoverage')
+    printf "%-6s|%13s\n" "$folder" "$lineCoverage"
+done)
+
 # Comment on a random pull request
 PR_NUMBER=$(gh pr list | awk '{print $1}' | sort -R | head -n 1)
-PR_COMMENT="Coverage Percentage:\n$COVERAGE_SUMMARY"
+PR_COMMENT="Coverage Percentage:\n$COVERAGE_TABLE"
 
 gh pr comment $PR_NUMBER --body "$PR_COMMENT"
 
