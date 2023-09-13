@@ -38,7 +38,7 @@ jq -r '.[] | "\(.folder) | \(.linecoverage)"' "$RESULT_JSON" | while IFS= read -
 done)
 # Comment on a random pull request
 PR_NUMBER=$(gh pr list | awk '{print $1}' | sort -R | head -n 1)
-PR_COMMENT="$COVERAGE_SUMMARY"
+PR_COMMENT=$COVERAGE_SUMMARY
 
 gh pr comment $PR_NUMBER --body "$PR_COMMENT"
 
