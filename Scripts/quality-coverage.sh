@@ -29,10 +29,10 @@ COVERAGE_SUMMARY=$(cat $RESULT_JSON | jq -r '
 		folder: .name,
     	lineCoverage: .lineCoverage
     }
-')
+' printf "%-30s %-15s\n" "Folder" "Line Coverage")
 
 # Print a table header
-printf "%-30s %-15s\n" "Folder" "Line Coverage"
+# printf "%-30s %-15s\n" "Folder" "Line Coverage"
 
 # Comment on a random pull request
 PR_NUMBER=$(gh pr list | awk '{print $1}' | sort -R | head -n 1)
