@@ -36,3 +36,8 @@ else
     REPORT=$(cat $RESULT_JSON | jq -r '.targets[] | select( .executableLines > 0 ) | "\(.name): \(.lineCoverage * 100)%"' | sort)
     echo -e "Folders Tested and Coverage Percentage:\n$REPORT"
 fi
+
+PR_NUMBER=$(gh pr list | awk '{print $1}' | sort -R | head -n 1)
+PR_COMMENT="Coverage Percentage:\n$COVERAGE_PASSES"
+
+gh pr comment $PR_NUMBER --body "$PR_COMMENT"
