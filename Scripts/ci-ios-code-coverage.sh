@@ -30,7 +30,7 @@ COVERAGE_PASSES=$(echo "$CODE_COVERAGE > $MIN_CODE_COVERAGE" | bc)
 if [ $COVERAGE_PASSES -ne 1 ]; then
 	printf "\033[0;31mCode coverage %.1f%% is less than required %.1f%%\033[0m\n" $CODE_COVERAGE $MIN_CODE_COVERAGE
 	PR_NUMBER=$(gh pr list | awk '{print $1}' | sort -R | head -n 1)
-	PR_COMMENT="Code coverage %.1f%% is less than required %.1f%%" $CODE_COVERAGE $MIN_CODE_COVERAGE
+	PR_COMMENT= $CODE_COVERAGE
 
 	gh pr comment $PR_NUMBER --body "$PR_COMMENT"
 
