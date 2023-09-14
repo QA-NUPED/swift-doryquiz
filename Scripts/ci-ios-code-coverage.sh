@@ -23,17 +23,19 @@ set -o pipefail && env NSUnbufferedIO=YES xcrun xccov view --report --json $RESU
 CODE_COVERAGE=$(cat $RESULT_JSON | jq -r '.targets[] | select( .executableLines > 0 ) | .lineCoverage' | sed -n '1p')
 
 # Multiplicando por cem para que o valor seja uma porcentagem
-CODE_COVERAGE=$(echo $CODE_COVERAGE*100.0 | bc)
+CODE_COVERAGE_1=$(echo $CODE_COVERAGE*100.0 | bc)
+
+CODE_COVERAGE_2=$(printf "%.2f" $CODE_COVERAGE_1)
 
 TABLE_MD="## COVERAGE
 | **Code coverage** | **Is less than required** |
 |-------------------|---------------------------|
-| $CODE_COVERAGE | $MIN_CODE_COVERAGE |"
+| $CODE_COVERAGE_2  % | $MIN_CODE_COVERAGE % |"
 
 # Verificando se a porcentagem obtida está de acordo com o esperado
-COVERAGE_PASSES=$(echo "$CODE_COVERAGE > $MIN_CODE_COVERAGE" | bc)
+COVERAGE_PASSES=$(echo "$CODE_COVERAGE_1 > $MIN_CODE_COVERAGE" | bc)
 if [ $COVERAGE_PASSES -ne 1 ]; then
-	printf "\033[0;31mCode coverage %.1f%% is less than required %.1f%%\033[0m\n" $CODE_COVERAGE $MIN_CODE_COVERAGE
+	printf "\033[0;31mCode coverage %.1f%% is less than required %.1f%%\033[0m\n" $CODE_COVERAGE_1 $MIN_CODE_COVERAGE
 	PR_NUMBER=$(gh pr list | awk '{print $1}' | sort -R | head -n 1)
 	PR_COMMENT="$TABLE_MD"
 	gh pr comment $PR_NUMBER --body "$PR_COMMENT"
