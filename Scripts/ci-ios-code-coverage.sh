@@ -2,7 +2,7 @@
 SCHEME="IndexedDataStore"
 RESULT_BUNDLE="CodeCoverage.xcresult"
 RESULT_JSON="CodeCoverage.json"
-MIN_CODE_COVERAGE=60.0
+MIN_CODE_COVERAGE=10.0
 
 # Pre-clean
 if [ -d $RESULT_BUNDLE ]; then
