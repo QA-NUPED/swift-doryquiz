@@ -25,6 +25,8 @@ CODE_COVERAGE=$(cat $RESULT_JSON | jq -r '.targets[] | select( .executableLines 
 # Multiplicando por cem para que o valor seja uma porcentagem
 CODE_COVERAGE=$(echo $CODE_COVERAGE*100.0 | bc)
 
+CODE_COVERAGE=$(echo "scale=1; $CODE_COVERAGE" | bc)
+
 # Verificando se a porcentagem obtida está de acordo com o esperado
 COVERAGE_PASSES=$(echo "$CODE_COVERAGE > $MIN_CODE_COVERAGE" | bc)
 if [ $COVERAGE_PASSES -ne 1 ]; then
