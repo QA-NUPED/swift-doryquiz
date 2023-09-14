@@ -50,5 +50,3 @@ if [ $COVERAGE_PASSES -eq 1 ]; then
 else
     printf "\033[0;31mCode coverage %.1f%% is less than required %.1f%%\033[0m\n" $CODE_COVERAGE $MIN_CODE_COVERAGE
 fi
-
-printf $generate_table()
