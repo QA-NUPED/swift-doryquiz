@@ -2,7 +2,7 @@
 SCHEME="IndexedDataStore"
 RESULT_BUNDLE="CodeCoverage.xcresult"
 RESULT_JSON="CodeCoverage.json"
-MIN_CODE_COVERAGE=60.0
+MIN_CODE_COVERAGE=80.0
 
 export RESULT_JSON="CodeCoverage.json"
 
