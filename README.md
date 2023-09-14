@@ -31,7 +31,6 @@ Testes Unitários
 | Code coverage | Is less than required |
 |------------------|----------------------|
 |`$CODE_COVERAGE` | `$MIN_CODE_COVERAGE` |
-|----------------------------------------------------------|
 |A cobertura de código é menor do que o mínimo requerido. |
 
 
