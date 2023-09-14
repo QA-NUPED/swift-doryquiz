@@ -25,12 +25,29 @@ CODE_COVERAGE=$(cat $RESULT_JSON | jq -r '.targets[] | select( .executableLines 
 # Multiplicando por cem para que o valor seja uma porcentagem
 CODE_COVERAGE=$(echo $CODE_COVERAGE*100.0 | bc)
 
+# Nome do arquivo Markdown
+arquivo_md="exemplo.md"
+
+# Crie ou sobrescreva o arquivo Markdown
+cat <<EOF > "$arquivo_md"
+# Título do Documento
+
+Este é um exemplo de documento Markdown criado por um script shell.
+
+- Item 1
+- Item 2
+- Item 3
+
+[Link para o Google](https://www.google.com)
+EOF
+
+
 # Verificando se a porcentagem obtida está de acordo com o esperado
 COVERAGE_PASSES=$(echo "$CODE_COVERAGE > $MIN_CODE_COVERAGE" | bc)
 if [ $COVERAGE_PASSES -ne 1 ]; then
 	printf "\033[0;31mCode coverage %.1f%% is less than required %.1f%%\033[0m\n" $CODE_COVERAGE $MIN_CODE_COVERAGE
 	PR_NUMBER=$(gh pr list | awk '{print $1}' | sort -R | head -n 1)
-	PR_COMMENT="*** Code coverage $CODE_COVERAGE is less than required $MIN_CODE_COVERAGE ***"
+	PR_COMMENT="$arquivo_md"
 
 	gh pr comment $PR_NUMBER --body "$PR_COMMENT"
 
