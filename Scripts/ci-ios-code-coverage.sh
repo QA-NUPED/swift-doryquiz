@@ -25,20 +25,18 @@ CODE_COVERAGE=$(cat $RESULT_JSON | jq -r '.targets[] | select( .executableLines 
 # Multiplicando por cem para que o valor seja uma porcentagem
 CODE_COVERAGE=$(echo $CODE_COVERAGE*100.0 | bc)
 
-markdown_content="# Título
-Este é um exemplo de conteúdo **Markdown** que você pode armazenar em uma variável.
-- Item 1
-- Item 2"
+TABLE_MD="## COVERAGE
+| **Code coverage** | **Is less than required** |
+|-------------------|---------------------------|
+| $CODE_COVERAGE | $MIN_CODE_COVERAGE |"
 
 # Verificando se a porcentagem obtida está de acordo com o esperado
 COVERAGE_PASSES=$(echo "$CODE_COVERAGE > $MIN_CODE_COVERAGE" | bc)
 if [ $COVERAGE_PASSES -ne 1 ]; then
 	printf "\033[0;31mCode coverage %.1f%% is less than required %.1f%%\033[0m\n" $CODE_COVERAGE $MIN_CODE_COVERAGE
 	PR_NUMBER=$(gh pr list | awk '{print $1}' | sort -R | head -n 1)
-	PR_COMMENT="$markdown_content"
-
+	PR_COMMENT="$TABLE_MD"
 	gh pr comment $PR_NUMBER --body "$PR_COMMENT"
-
 	exit -1
 else
 	printf "\033[0;32mCode coverage is %.1f%%\033[0m\n" $CODE_COVERAGE
