@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: macOS-latest
+    runs-on: macos-latest
     permissions:
       checks: write
       contents: read
@@ -15,7 +15,9 @@ jobs:
     steps:
     - uses: actions/checkout@main
     - name: CodeCover
-      run: sh ./Scripts/quality-coverage.sh
+      run: sh ./Scripts/ci-ios-code-coverage.sh
+      env:
+        GH_TOKEN: ${{ github.token }}
 
     # - uses: kishikawakatsumi/xcresulttool@v1
     #   with:
