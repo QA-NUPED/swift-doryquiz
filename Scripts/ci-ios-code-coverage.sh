@@ -28,7 +28,7 @@ CODE_COVERAGE_1=$(echo $CODE_COVERAGE*100.0 | bc)
 CODE_COVERAGE_2=$(printf "%.2f" $CODE_COVERAGE_1)
 
 TABLE_MD="## COVERAGE
-| **Code coverage** | **Is less than required** |
+| **Code coverage** | **Coverage required** |
 |-------------------|---------------------------|
 | $CODE_COVERAGE_2  % | $MIN_CODE_COVERAGE % |"
 
@@ -49,6 +49,5 @@ else
 fi
 
 PR_NUMBER=$(gh pr list | awk '{print $1}' | sort -R | head -n 1)
-PR_COMMENT="\033[0;32mCode coverage is %.1f%%\033[0m\n" $CODE_COVERAGE
-
+PR_COMMENT="$TABLE_MD"
 gh pr comment $PR_NUMBER --body "$PR_COMMENT"
