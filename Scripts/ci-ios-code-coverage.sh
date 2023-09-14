@@ -2,7 +2,7 @@
 SCHEME="IndexedDataStore"
 RESULT_BUNDLE="CodeCoverage.xcresult"
 RESULT_JSON="CodeCoverage.json"
-MIN_CODE_COVERAGE=10.0
+MIN_CODE_COVERAGE=40.0
 
 # Pre-clean
 if [ -d $RESULT_BUNDLE ]; then
@@ -41,11 +41,12 @@ if [ $COVERAGE_PASSES -ne 1 ]; then
 	gh pr comment $PR_NUMBER --body "$PR_COMMENT"
 	exit -1
 else
-	printf "\033[0;32mCode coverage is %.1f%%\033[0m\n" $CODE_COVERAGE
+	printf "\033[0;32mCode coverage is %.1f%%\033[0m\n" $CODE_COVERAGE_1
 
     # Gerar relatório de pastas testadas e porcentagens
-    REPORT=$(cat $RESULT_JSON | jq -r '.targets[] | select( .executableLines > 0 ) | "\(.name): \(.lineCoverage * 100)%"' | sort)
+    REPORT=$(cat $RESULT_JSON | jq -r '.targets[] | select( .executableLines > 0 ) | "\(.name): \(.lineCoverage * 100) %"' | sort)
     echo -e "Folders Tested and Coverage Percentage:\n$REPORT"
+
 fi
 
 PR_NUMBER=$(gh pr list | awk '{print $1}' | sort -R | head -n 1)
