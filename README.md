@@ -28,5 +28,3 @@ Testes Unitários
 
 ![image](https://github.com/QA-NUPED/swift-doryquiz/assets/108770094/ae74e804-42d5-4873-8111-9e061956ca02)
 
-| Code coverage `$CODE_COVERAGE`| 
-| is less than required `$MIN_CODE_COVERAGE` |
