@@ -4,6 +4,8 @@ RESULT_BUNDLE="CodeCoverage.xcresult"
 RESULT_JSON="CodeCoverage.json"
 MIN_CODE_COVERAGE=60.0
 
+export RESULT_JSON="CodeCoverage.json"
+
 # Pre-clean
 if [ -d $RESULT_BUNDLE ]; then
     rm -rf $RESULT_BUNDLE
@@ -48,3 +50,5 @@ if [ $COVERAGE_PASSES -eq 1 ]; then
 else
     printf "\033[0;31mCode coverage %.1f%% is less than required %.1f%%\033[0m\n" $CODE_COVERAGE $MIN_CODE_COVERAGE
 fi
+
+printf $generate_table()
