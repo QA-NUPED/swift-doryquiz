@@ -4,6 +4,8 @@ RESULT_BUNDLE="CodeCoverage.xcresult"
 RESULT_JSON="CodeCoverage.json"
 MIN_CODE_COVERAGE=60.0
 
+export RESULT_JSON="CodeCoverage.json"
+
 # Pre-clean
 if [ -d $RESULT_BUNDLE ]; then
     rm -rf $RESULT_BUNDLE
@@ -30,6 +32,7 @@ COVERAGE_SUMMARY=$(cat $RESULT_JSON | jq -r '
     	lineCoverage: .lineCoverage
     }
 ')
+
 # Print a table header
 printf "%-30s %-15s\n" "Folder" "Line Coverage"
 
