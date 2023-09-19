@@ -7,6 +7,9 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+
     permissions:
       checks: write
       contents: read
@@ -15,9 +18,14 @@ jobs:
     steps:
     - uses: actions/checkout@main
     - name: CodeCover
-      run: sh ./Scripts/ci-ios-code-coverage.sh
-      env:
-        GH_TOKEN: ${{ github.token }}
+      run: |
+          output=$(sh ./Scripts/ci-ios-code-coverage.sh)
+          PR_COMMENT="$output"
+          gh pr comment $PR_NUMBER --body "$PR_COMMENT"
+
+      # run: sh ./Scripts/ci-ios-code-coverage.sh
+      # env:
+      #   GH_TOKEN: ${{ github.token }}
         
     # - uses: kishikawakatsumi/xcresulttool@v1
     #   with:

@@ -35,21 +35,20 @@ TABLE_MD="## COVERAGE
 # Verificando se a porcentagem obtida está de acordo com o esperado
 COVERAGE_PASSES=$(echo "$CODE_COVERAGE_1 > $MIN_CODE_COVERAGE" | bc)
 if [ $COVERAGE_PASSES -ne 1 ]; then
-	printf "\033[0;31mCode coverage %.1f%% is less than required %.1f%%\033[0m\n" $CODE_COVERAGE_1 $MIN_CODE_COVERAGE
-	PR_NUMBER=$(gh pr list | awk '{print $1}' | ls -lt | head -n 1)
-	echo -e "$PR_NUMBER"
-	# PR_COMMENT="$TABLE_MD"
-	# gh pr comment $PR_NUMBER --body "$PR_COMMENT"
+	#printf "\033[0;31mCode coverage %.1f%% is less than required %.1f%%\033[0m\n" $CODE_COVERAGE_1 $MIN_CODE_COVERAGE
+	# PR_NUMBER=$(gh pr list | awk '{print $1}' | ls -lt | head -n 1)
+	PR_COMMENT="$TABLE_MD"
+	gh pr comment $PR_NUMBER --body "$PR_COMMENT"
 	exit -1
-else
-	printf "\033[0;32mCode coverage is %.1f%%\033[0m\n" $CODE_COVERAGE_1
+#else
+	#printf "\033[0;32mCode coverage is %.1f%%\033[0m\n" $CODE_COVERAGE_1
 
     # Gerar relatório de pastas testadas e porcentagens
-    REPORT=$(cat $RESULT_JSON | jq -r '.targets[] | select( .executableLines > 0 ) | "\(.name): \(.lineCoverage * 100) %"' | sort)
-    echo -e "Folders Tested and Coverage Percentage:\n$REPORT"
+    # REPORT=$(cat $RESULT_JSON | jq -r '.targets[] | select( .executableLines > 0 ) | "\(.name): \(.lineCoverage * 100) %"' | sort)
+    # echo -e "Folders Tested and Coverage Percentage:\n$REPORT"
 
 fi
 
-PR_NUMBER=$(gh pr list | awk '{print $1}' | ls -lt | head -n 1)
+# PR_NUMBER=$(gh pr list | awk '{print $1}' | ls -lt | head -n 1)
 PR_COMMENT="$TABLE_MD"
 gh pr comment $PR_NUMBER --body "$PR_COMMENT"
