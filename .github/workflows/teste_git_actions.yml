@@ -7,17 +7,18 @@ on:
 jobs:
   build:
     runs-on: macos-latest
-    
     env:
-        PR_NUMBER: ${{ github.event.pull_request.number }}
-        GH_TOKEN: ${{ github.token }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      GH_TOKEN: ${{ github.token }}
+
     steps:
     - uses: actions/checkout@main
     - name: CodeCover
-      run: |
-          output=$(sh ./Scripts/ci-ios-code-coverage.sh)
-          PR_COMMENT="$output"
-          gh pr comment $PR_NUMBER --body "$PR_COMMENT"
+      run: sh ./Scripts/ci-ios-code-coverage.sh
+      # run: |
+      #     output=$(sh ./Scripts/ci-ios-code-coverage.sh)
+      #     PR_COMMENT="$output"
+      #     gh pr comment $PR_NUMBER --body "$PR_COMMENT"
 
      
         
