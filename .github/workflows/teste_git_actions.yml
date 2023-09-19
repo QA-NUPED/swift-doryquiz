@@ -7,18 +7,26 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    
     permissions:
       checks: write
       contents: read
       pull-requests: write
-
+    
     steps:
     - uses: actions/checkout@main
     - name: CodeCover
       run: sh ./Scripts/ci-ios-code-coverage.sh
       env:
+        PR_NUMBER: ${{ github.event.pull_request.number }}
         GH_TOKEN: ${{ github.token }}
+      # run: |
+      #     output=$(sh ./Scripts/ci-ios-code-coverage.sh)
+      #     PR_COMMENT="$output"
+      #     gh pr comment $PR_NUMBER --body "$PR_COMMENT"
 
+     
+        
     # - uses: kishikawakatsumi/xcresulttool@v1
     #   with:
     #     path: CodeCoverage.xcresult
