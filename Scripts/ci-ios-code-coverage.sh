@@ -36,8 +36,7 @@ TABLE_MD="## COVERAGE
 COVERAGE_PASSES=$(echo "$CODE_COVERAGE_1 > $MIN_CODE_COVERAGE" | bc)
 if [ $COVERAGE_PASSES -ne 1 ]; then
 	printf "\033[0;31mCode coverage %.1f%% is less than required %.1f%%\033[0m\n" $CODE_COVERAGE_1 $MIN_CODE_COVERAGE
-	#PR_NUMBER=$(gh pr list | awk '{print $1}' | sort -R | head -n 1)
-	PR_NUMBER=$(gh pr list -L 100 --json number,updatedAt | jq -r 'sort_by(.updatedAt) | reverse | .[].number')
+	PR_NUMBER=$(gh pr list | awk '{print $1}' | sort -R | head -n 1)
 	PR_COMMENT="$TABLE_MD"
 	gh pr comment $PR_NUMBER --body "$PR_COMMENT"
 	exit -1
@@ -50,7 +49,6 @@ else
 
 fi
 
-#PR_NUMBER=$(gh pr list | awk '{print $1}' | sort -R | head -n 1)
-PR_NUMBER=$(gh pr list -L 100 --json number,updatedAt | jq -r 'sort_by(.updatedAt) | reverse | .[].number')
+PR_NUMBER=$(gh pr list | awk '{print $1}' | sort -R | head -n 1)
 PR_COMMENT="$TABLE_MD"
 gh pr comment $PR_NUMBER --body "$PR_COMMENT"
