@@ -7,10 +7,15 @@ on:
 jobs:
   build:
     runs-on: macos-latest
-    
     env:
-        PR_NUMBER: ${{ github.event.pull_request.number }}
-        GH_TOKEN: ${{ github.token }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      GH_TOKEN: ${{ github.token }}
+
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: write
+
     steps:
     - uses: actions/checkout@main
     - name: CodeCover
@@ -18,15 +23,3 @@ jobs:
           output=$(sh ./Scripts/ci-ios-code-coverage.sh)
           PR_COMMENT="$output"
           gh pr comment $PR_NUMBER --body "$PR_COMMENT"
-
-     
-        
-    # - uses: kishikawakatsumi/xcresulttool@v1
-    #   with:
-    #     path: CodeCoverage.xcresult
-    #     token: ${{ secrets.GITHUB_TOKEN }}
-    #     title: Xcode test results
-    #     show-passed-tests: false
-    #     show-code-coverage: true
-    # # - run: sh ./Scripts/quality-coverage.sh
-    #   if: success() || failure()
