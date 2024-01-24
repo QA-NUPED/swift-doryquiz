@@ -3,7 +3,7 @@ name: Code Coverage
 on:
   pull_request:
     paths:
-      - "doryQuiz/doryQuizTests"
+      - "doryQuiz/doryQuizTests/doryQuizTests.swift"
 
 jobs:
   build:
