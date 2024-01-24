@@ -2,7 +2,8 @@ name: Code Coverage
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    paths:
+      - "doryQuiz/doryQuizTests"
 
 jobs:
   build:
@@ -18,13 +19,3 @@ jobs:
       run: sh ./Scripts/ci-ios-code-coverage.sh
       env:
         GH_TOKEN: ${{ github.token }}
-
-    # - uses: kishikawakatsumi/xcresulttool@v1
-    #   with:
-    #     path: CodeCoverage.xcresult
-    #     token: ${{ secrets.GITHUB_TOKEN }}
-    #     title: Xcode test results
-    #     show-passed-tests: false
-    #     show-code-coverage: true
-    # # - run: sh ./Scripts/quality-coverage.sh
-    #   if: success() || failure()
