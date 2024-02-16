@@ -19,7 +19,7 @@ jobs:
             const commit_sha = context.payload.pull_request.head.sha; // Get the SHA of the head commit of the PR
             const maxRetries = 15; // Maximum number of retries
             const excludedCheckRunName = 'check_commit_status' // important you don't define name key for the job
-            const blockedCheckName = 'build'; // Nome do check a ser bloqueado
+            const blockedCheckName = 'build1'; // Nome do check a ser bloqueado
             let retryCount = 0;
             
             async function fetchCheckRuns() {
