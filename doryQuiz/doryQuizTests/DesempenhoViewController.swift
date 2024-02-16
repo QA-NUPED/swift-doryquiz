@@ -13,12 +13,12 @@ final class DesempenhoViewControllerTest: XCTestCase {
         func testExibirPontuacao() {
             // Arrange
             let sut = DesempenhoViewController()
-            
+
             // Act
             sut.pontuacao = 1
             sut.questoes = [.init(titulo: "", respostas: [ ], respostaCorreta: 0)]
             sut.configurarDesempenho()
-            
+
             // Assert
             XCTAssertEqual(sut.resultado, "Você acertou 1 de 1 questões")
         }
