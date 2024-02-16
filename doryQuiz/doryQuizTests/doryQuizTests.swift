@@ -10,7 +10,7 @@ import XCTest
 
 final class doryQuizTests: XCTestCase {
 
-    override func setUpWithError() throws {
+    override func setUpWithErroraaaaaaaaaaaa() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
