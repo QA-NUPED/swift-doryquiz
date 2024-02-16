@@ -16,6 +16,6 @@ jobs:
     steps:
     - uses: actions/checkout@main
     - name: Code Cover
-      run: sh ./Scripts/ci-ios-code-coverage.sh
+      run: sh ./Scripts/ci-ios-code-coverage1.sh
       env:
         GH_TOKEN: ${{ github.token }}
